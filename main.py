@@ -40,12 +40,6 @@ while run:
             if len(dot) < 3:
                 pygame.draw.rect(screen, white, (mouse_pos[0], mouse_pos[1], 2, 2))
                 dot.append(mouse_pos)
-            else:
-                if play:
-                    play = False
-                else:
-                    play = True
-
     if len(dot) == 2:
         start = dot[0]
         rand_dot = dot[1]
