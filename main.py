@@ -6,7 +6,7 @@ def game():
     new_dot = ((pos[0][0]+pos[1][0])//2, (pos[0][1]+pos[1][1])//2)
     rand_dot = choice(dot)
     pos = (new_dot, rand_dot)
-    pygame.draw.rect(screen, white, (pos[0][0], pos[0][1], 2, 2))
+    pygame.draw.rect(screen, white, (pos[0][0], pos[0][1], dot_size, dot_size))
 
 
 white     = (255, 255, 255)
@@ -17,6 +17,7 @@ blue      = (0, 0, 255)
 
 width = 820
 height = 600
+dot_size = 1
 fps = 60
 dot = []
 
@@ -25,8 +26,6 @@ screen = pygame.display.set_mode((width, height))
 screen.fill(black)
 pygame.display.set_caption('Game of Chaos')
 clock = pygame.time.Clock()
-# font = pygame.font.SysFont('Comic Sans MS', 30)
-# textsurface = font.render('Some Text', False, white)
 
 play = False
 run = True
@@ -38,7 +37,7 @@ while run:
             run = False
         elif e.type == pygame.MOUSEBUTTONDOWN:
             if len(dot) < 3:
-                pygame.draw.rect(screen, white, (mouse_pos[0], mouse_pos[1], 2, 2))
+                pygame.draw.rect(screen, white, (mouse_pos[0], mouse_pos[1], dot_size, dot_size))
                 dot.append(mouse_pos)
     if len(dot) == 2:
         start = dot[0]
